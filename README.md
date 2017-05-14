@@ -5,15 +5,15 @@ This plugin uses the 'make' hook of webpack.
 ```
 new SharedVariablesPlugin({
 	files: [{
-		in: './src/data/mediaQueries.js',
-		out: './src/asset/style/mediaQueries.scss',
+		in: './src/data/example.js',
+		out: './src/asset/style/example.scss',
 		// Optional defaults to sass-maps
 		createVariables: true
 	}],
 }),
 ```
 
-IN
+IN (example.js)
 ```javascript
 export default {
 	BG_COLOR: "green",
@@ -21,10 +21,10 @@ export default {
 }
 ```
 
-OUT
+OUT (example.scss)
 ```scss
-export default {
-	BG_COLOR: "green"
+$example: (
+	BG_COLOR: "green",
 	TRANSLATION: "translate(45px, 45px)",
-}
+);
 ```
