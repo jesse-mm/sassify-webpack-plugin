@@ -2,7 +2,6 @@
 const path = require('path');
 const fs = require('fs');
 const pify = require('pify');
-const moment = require('moment');
 
 class SharedVariablesPlugin {
 	constructor(config) {
@@ -16,11 +15,6 @@ class SharedVariablesPlugin {
 		});
 
 		this.debug = config.debug;
-
-		// When first make has ran
-		this.firstRun = true;
-		// Generate new out file when in file is older then > 1000
-		this.refreshOutFileTime = 1000;
 	}
 
 	/**
@@ -30,28 +24,12 @@ class SharedVariablesPlugin {
 	apply(compiler) {
 		// Listen to the make state of the compiler
 		compiler.plugin('make', (compilation, callback) => {
-			this.setInFilesNewModificationDate()
-				.then(() => this.getInFilesToProcess())
-				.then(files => this.createOutFiles(files))
+			this.getInFilesToProcess()
+				.then(files => this.createOutFiles(files.filter(file => !!file)))
 				.then(() => callback());
 		});
 	}
 
-	/**
-	 * Stats in files and checks there modification date
-	 * @param files
-	 * @returns {Promise.<*>}
-	 */
-	setInFilesNewModificationDate() {
-		const promises = new Array(this.files.length);
-
-		for (let i = 0; i < this.files.length; i++) {
-			const file = this.files[i];
-			promises[i] = this.statInFile(file);
-		}
-
-		return Promise.all(promises);
-	}
 
 	/**
 	 * Returns files to be processed from JS to SCSS equivalent.
@@ -59,23 +37,20 @@ class SharedVariablesPlugin {
 	 */
 	getInFilesToProcess() {
 		const filesToProcess = [];
+		const promises = new Array(this.files.length);
 
 		for (let i = 0; i < this.files.length; i++) {
 			const file = this.files[i];
 
-			if (this.firstRun) {
-				filesToProcess.push(file);
-			} else {
-				// Refresh out file when passed time is smaller then refreshOutFileTime
-				if (moment.utc().diff(moment.utc(file.modificationDate)) < this.refreshOutFileTime) {
-					filesToProcess.push(file);
+			promises[i] = this.statInFile(file).then(mtime => {
+				if( file.modificationDate !== mtime) {
+					file.modificationDate = mtime;
+					return file;
 				}
-			}
+			});
 		}
 
-		this.firstRun = false;
-
-		return Promise.resolve(filesToProcess);
+		return Promise.all(promises);
 	}
 
 	/**
@@ -85,8 +60,7 @@ class SharedVariablesPlugin {
 	statInFile(file) {
 		return pify(fs.stat)(path.resolve(file.in))
 			.then((statResult) => {
-				file.modificationDate = statResult.mtime;
-				return file;
+				return statResult.mtime.getTime();
 			})
 			.catch(error => console.error(error));
 	}
@@ -159,6 +133,10 @@ class SharedVariablesPlugin {
 	 * @returns {Promise.<*>}
 	 */
 	createOutFiles(files) {
+		if( files.length === 0) {
+			return Promise.resolve();
+		}
+
 		const promises = new Array(files.length);
 		const getFileName = (fileName) => fileName.split(/\//).pop();
 
