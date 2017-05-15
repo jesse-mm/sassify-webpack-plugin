@@ -1,0 +1,6 @@
+const SingleExportParser = {
+	parse: () => {
+	},
+	write: () => {
+	}
+};

@@ -4,3 +4,6 @@ dist/
 npm-debug.log
 .idea
 */.idea
+/test/cases/**/scss
+/test/cases/**/js
+/test/js

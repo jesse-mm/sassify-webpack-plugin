@@ -1,5 +1,13 @@
 {
   "devDependencies": {
+    "ava": "^0.19.1",
+    "ava-fixture": "^0.10.1",
+    "webpack": "^2.5.1"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "dependencies": {
     "path": "^0.12.7",
     "pify": "^2.3.0"
   }
