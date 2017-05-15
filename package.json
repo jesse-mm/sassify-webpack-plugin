@@ -1,6 +1,5 @@
 {
   "devDependencies": {
-    "moment": "^2.18.1",
     "path": "^0.12.7",
     "pify": "^2.3.0"
   }
