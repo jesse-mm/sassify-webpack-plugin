@@ -5,7 +5,7 @@ const webpack = require('webpack');
 
 const cases = fs.readdirSync(path.join(__dirname, "cases"));
 
-test.cb('Compiles ', t => {
+test.cb('Checking generated files against expected output', t => {
 	cases.forEach(testCase => {
 		const testDirectory = path.join(__dirname, "cases", testCase);
 		const configFile = path.join(testDirectory, "webpack.config.js");
@@ -19,11 +19,11 @@ test.cb('Compiles ', t => {
 
 			const expectedDirectory = path.join(testDirectory, "expected");
 
-			fs.readdirSync(expectedDirectory).forEach(function(file, index) {
-				const expectedFile = path.join(expectedDirectory, file);
-				const generatedFile = options.plugins[0].files[index];
+			options.plugins[0].files.forEach((file, index) => {
+				const expectedFile = readFileOrEmpty(file.out.replace('scss', 'expected'));
+				const generatedFile = readFileOrEmpty(file.out);
 
-				t.is(readFileOrEmpty(expectedFile), readFileOrEmpty(generatedFile), 'File contents identical');
+				t.is(expectedFile, generatedFile, 'File contents aren\'t identical.');
 			});
 
 			t.end();
