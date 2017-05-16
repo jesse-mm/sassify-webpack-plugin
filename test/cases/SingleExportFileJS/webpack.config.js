@@ -7,12 +7,12 @@ module.exports = {
 		new SharedVariablesPlugin({
 			files: [
 				{
-					in: path.resolve(__dirname, './singleExport.js'),
-					out: path.resolve(__dirname, './scss/singleExport.scss'),
+					source: path.resolve(__dirname, './singleExport.js'),
+					dest: path.resolve(__dirname, './scss/singleExport.scss'),
 				},
 				{
-					in: path.resolve(__dirname, './singleExport.js'),
-					out: path.resolve(__dirname, './scss/_singleExport.scss'),
+					source: path.resolve(__dirname, './singleExport.js'),
+					dest: path.resolve(__dirname, './scss/_singleExport.scss'),
 				},
 			],
 		}),

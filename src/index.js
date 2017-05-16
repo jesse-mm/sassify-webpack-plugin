@@ -27,7 +27,7 @@ class SharedVariablesPlugin {
 	apply(compiler) {
 		// Listen to the make state of the compiler
 		compiler.plugin('make', (compilation, callback) => {
-			this.getInFilesToProcess()
+			this.getSourceFilesToProcess()
 				.then(files => this.createOutFiles(files.filter(file => !!file)))
 				.then(() => callback());
 		});
@@ -37,14 +37,13 @@ class SharedVariablesPlugin {
 	 * Returns files to be processed from JS to SCSS equivalent.
 	 * @returns {Promise.<Array>}
 	 */
-	getInFilesToProcess() {
-		const filesToProcess = [];
+	getSourceFilesToProcess() {
 		const promises = new Array(this.files.length);
 
 		for (let i = 0; i < this.files.length; i++) {
 			const file = this.files[i];
 
-			promises[i] = this.statInFile(file).then(mtime => {
+			promises[i] = this.statSourceFile(file).then(mtime => {
 				if( file.modificationDate !== mtime) {
 					file.modificationDate = mtime;
 					return file;
@@ -59,8 +58,8 @@ class SharedVariablesPlugin {
 	 * Stats the in file
 	 * @param file
 	 */
-	statInFile(file) {
-		return pify(fs.stat)(path.resolve(file.in))
+	statSourceFile(file) {
+		return pify(fs.stat)(path.resolve(file.source))
 			.then((statResult) => {
 				return statResult.mtime.getTime();
 			}).catch(statError => {
@@ -73,7 +72,7 @@ class SharedVariablesPlugin {
 	 * @param fileData
 	 * @returns {*}
 	 */
-	parseInFile(fileData) {
+	parseSourceFile(fileData) {
 		// Remove tabs, split on newlines
 		let lines = fileData.replace(/\t/, '').split(/\n/);
 		// Remove first line and last line of the file
@@ -109,7 +108,7 @@ class SharedVariablesPlugin {
 	 * @param compiledSource
 	 * @returns {string}
 	 */
-	generateScss(compiledSource, fileInName, fileOutName) {
+	generateDestinationFile(compiledSource, fileInName, fileOutName) {
 		if( compiledSource === null || typeof compiledSource !== 'object') {
 			console.error(`[${fileInName}] Cannot generate outFile. Something seems wrong with the compiled source...`);
 			return;
@@ -145,10 +144,14 @@ class SharedVariablesPlugin {
 
 		for (let i = 0; i < files.length; i++) {
 			const file = files[i];
-			promises[i] = pify(fs.readFile)(path.resolve(file.in), 'utf-8')
-				.then((fileData) => this.parseInFile(fileData))
-				.then(compiledJs => this.generateScss(compiledJs, getFileName(file.in), getFileName(file.out)))
-				.then(scssSource => this.writeOutFile(scssSource, file.out))
+			promises[i] = pify(fs.readFile)(path.resolve(file.source), 'utf-8')
+				.then((fileData) => this.parseSourceFile(fileData))
+				.then(compiledJs => this.generateDestinationFile(
+					compiledJs,
+					getFileName(file.source),
+					getFileName(file.dest))
+				)
+				.then(scssSource => this.writeDestinationFile(scssSource, file.dest))
 				.catch(error => console.error(error));
 		}
 
@@ -160,7 +163,7 @@ class SharedVariablesPlugin {
 	 * @param scssSource
 	 * @param outFile
 	 */
-	writeOutFile(scssSource, outFile) {
+	writeDestinationFile(scssSource, outFile) {
 		const fileToWrite = () => pify(fs.writeFile)(path.resolve(outFile), scssSource, 'utf8');
 
 		if (this.forceWrite) {

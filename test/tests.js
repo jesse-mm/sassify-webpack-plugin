@@ -17,11 +17,9 @@ test.cb('Checking generated files against expected output', t => {
 			if(err) return t.end(err);
 			if(stats.hasErrors()) return t.end(new Error(stats.toString()));
 
-			const expectedDirectory = path.join(testDirectory, "expected");
-
 			options.plugins[0].files.forEach((file, index) => {
-				const expectedFile = readFileOrEmpty(file.out.replace('scss', 'expected'));
-				const generatedFile = readFileOrEmpty(file.out);
+				const expectedFile = readFileOrEmpty(file.dest.replace('scss', 'expected'));
+				const generatedFile = readFileOrEmpty(file.dest);
 
 				t.is(expectedFile, generatedFile, 'File contents aren\'t identical.');
 			});
