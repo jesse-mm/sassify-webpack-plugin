@@ -5,7 +5,7 @@
     "webpack": "^2.5.1"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava ./test/tests.js"
   },
   "dependencies": {
     "path": "^0.12.7",
