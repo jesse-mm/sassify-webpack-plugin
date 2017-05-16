@@ -1,0 +1,5 @@
+{
+  "ast": false,
+  "minified": true,
+  "presets": ["es2015"]
+}
