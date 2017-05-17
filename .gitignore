@@ -6,4 +6,4 @@ npm-debug.log
 */.idea
 /test/cases/**/scss
 /test/cases/**/js
-/test/js
+/src/**/*.js
