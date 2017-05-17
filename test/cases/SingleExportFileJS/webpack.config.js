@@ -1,4 +1,4 @@
-const SharedVariablesPlugin = require('../../../src/index');
+const SharedVariablesPlugin = require('../../../src/SharedVariablePlugin');
 const path = require('path');
 
 module.exports = {

@@ -10,6 +10,7 @@ test.cb('Checking generated files against expected output', t => {
 		const testDirectory = path.join(__dirname, "cases", testCase);
 		const configFile = path.join(testDirectory, "webpack.config.js");
 		const options = require(configFile);
+		const files = options.plugins[0]._files;
 
 		options.output = { filename: `./test/cases/${testCase}/js/${testCase}.js` };
 
@@ -17,7 +18,7 @@ test.cb('Checking generated files against expected output', t => {
 			if(err) return t.end(err);
 			if(stats.hasErrors()) return t.end(new Error(stats.toString()));
 
-			options.plugins[0].files.forEach((file, index) => {
+			files.forEach((file) => {
 				const expectedFile = readFileOrEmpty(file.dest.replace('scss', 'expected'));
 				const generatedFile = readFileOrEmpty(file.dest);
 
