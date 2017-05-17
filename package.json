@@ -1,16 +1,21 @@
 {
   "devDependencies": {
+    "@types/mkdirp": "^0.3.29",
+    "@types/node": "^7.0.18",
+    "@types/pathjs": "^0.8.32",
+    "@types/pify": "^0.0.28",
+    "asyncawait": "^1.0.6",
     "ava": "^0.19.1",
-    "ava-fixture": "^0.10.1",
     "babel-core": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
+    "mkdirp": "^0.5.1",
+    "path": "^0.12.7",
+    "pify": "^2.3.0",
+    "typescript": "^2.3.2",
     "webpack": "^2.5.1"
   },
   "scripts": {
     "test": "ava ./test/tests.js"
   },
-  "dependencies": {
-    "path": "^0.12.7",
-    "pify": "^2.3.0"
-  }
+  "dependencies": {}
 }
