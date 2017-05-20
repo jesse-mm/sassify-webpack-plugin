@@ -1,16 +1,21 @@
 {
   "compilerOptions": {
     "moduleResolution": "Node",
+    "module": "commonjs",
     "target": "es2016",
     "lib": ["es6", "dom"],
+    "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "noImplicitAny": true,
     "removeComments": false,
     "sourceMap": false,
-    "baseUrl": "src"
+    "baseUrl": "./src"
   },
   "include": [
     "node_modules/*",
     "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules/mustache"
   ]
 }
