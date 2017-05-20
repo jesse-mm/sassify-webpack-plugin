@@ -1,5 +1,5 @@
 interface IParser {
-	parse:()=>void;
+	run:()=>void;
 }
 
 export default IParser;
