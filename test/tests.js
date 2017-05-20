@@ -6,13 +6,16 @@ const webpack = require('webpack');
 const cases = fs.readdirSync(path.join(__dirname, "cases"));
 
 test.cb('Checking generated files against expected output', t => {
+	let testIndex = 0;
+
 	cases.forEach(testCase => {
 		const testDirectory = path.join(__dirname, "cases", testCase);
 		const configFile = path.join(testDirectory, "webpack.config.js");
 		const options = require(configFile);
-		const files = options.plugins[0]._files;
+		const files = options.plugins[0]._config.files;
 
 		options.output = { filename: `./test/cases/${testCase}/js/${testCase}.js` };
+
 
 		webpack(options, (err, stats) => {
 			if(err) return t.end(err);
@@ -25,7 +28,12 @@ test.cb('Checking generated files against expected output', t => {
 				t.is(expectedFile, generatedFile, 'File contents aren\'t identical.');
 			});
 
-			t.end();
+			testIndex = testIndex + 1;
+
+			// When all test a ran exit!
+			if(testIndex === cases.length) {
+				t.end();
+			}
 		});
 	});
 });

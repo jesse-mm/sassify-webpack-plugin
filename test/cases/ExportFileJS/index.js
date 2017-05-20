@@ -1,1 +1,1 @@
-require('./singleExport');
+const singleExport = require('./singleExport');

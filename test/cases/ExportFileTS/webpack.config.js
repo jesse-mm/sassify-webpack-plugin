@@ -8,20 +8,20 @@ module.exports = {
 			debug: false,
 			files: [
 				{
-					source: path.resolve(__dirname, './singleExport.js'),
+					source: path.resolve(__dirname, './singleExport.ts'),
 					dest: path.resolve(__dirname, './scss/singleExport.scss'),
 				},
 				{
-					source: path.resolve(__dirname, './multiExport.js'),
+					source: path.resolve(__dirname, './multiExport.ts'),
 					dest: path.resolve(__dirname, './scss/multiExport.scss'),
 				},
 				{
-					source: path.resolve(__dirname, './singleExport.js'),
+					source: path.resolve(__dirname, './singleExport.ts'),
 					dest: path.resolve(__dirname, './scss/singleExport-mapName.scss'),
 					mapName: 'globals',
 				},
 				{
-					source: path.resolve(__dirname, './singleExport.js'),
+					source: path.resolve(__dirname, './singleExport.ts'),
 					dest: path.resolve(__dirname, './scss/singleExport-varsOnly.scss'),
 					template: './src/parser/template/scss-vars.mustache',
 				}
