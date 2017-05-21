@@ -1,30 +1,51 @@
-# js-to-sass-plugin
-Makes sharing variables between JavaScript and SCSS easy.
-This plugin uses the 'make' hook of webpack.
+# Sassify Webpack Plugin [![Build Status](https://img.shields.io/travis/sassify-webpack-plugin/develop.svg)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin)
+Makes sharing variables between JavaScript/TypeScript and SCSS easy.
+Sassify can handle single exports and multi exports; This plugin uses the 'make' hook of webpack.
 
-```
-new SharedVariablesPlugin({
-	files: [{
-		in: './src/data/example.js',
-		out: './src/asset/style/example.scss',
-		// Optional defaults to sass-maps
-		createVariables: true
-	}],
-}),
-```
-
-IN (example.js)
+In your webpack config:
 ```javascript
-export default {
-	BG_COLOR: "green",
-	TRANSLATION: "translate(45px, 45px)",
-}
+const SassifyWebpackPlugin = require('sassify-webpack-plugin');
+// Dependency
+const path = require('path');
+
+module.exports = {
+	...
+	plugins: [
+		new SassifyWebpackPlugin({
+			files: [
+				{
+					source: path.resolve(__dirname, './singleExport.js'),
+					dest: path.resolve(__dirname, './scss/singleExport.scss'),
+				},
+		]}),
+	],
+};
 ```
 
-OUT (example.scss)
-```scss
-$example: (
-	BG_COLOR: "green",
-	TRANSLATION: "translate(45px, 45px)",
-);
+Options:
+In the files object the following configuration options are available:
+
+**mapName**
+When generating a single export ```export default { ... }``` it's possible to assign a different mapName.
+By default Sassify will use the filename (e.g. colors.js -> $colors: ()).
+
+**template**
+Sassify is using mustache for rendering templates. By default it uses 'scss-vars.mustache' found in
+```node_modules/sassify-webpack-plugin/dist/parser/template```.
+
+Using another template can be done by:
+1) Creating your own and use path.resolve to point to it.
+2) Or by using predefined templates:
+
+```javascript
+const template = require('sassify-webpack-plugin/template');
+
+new SassifyWebpackPlugin({
+	files: [
+		{
+			source: path.resolve(__dirname, './singleExport.js'),
+			dest: path.resolve(__dirname, './scss/singleExport.scss'),
+			template: template.vars,
+		},
+]})
 ```
