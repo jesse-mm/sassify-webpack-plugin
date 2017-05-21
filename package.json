@@ -1,7 +1,8 @@
 {
+  "main": "./dist/SassyWebpackPlugin.js",
   "version": "0.0.0-semantically-released",
   "scripts": {
-    "prepublish": "node ./bin/build.js type=prepublish",
+    "prepublish": "node ./bin/build.js prepublish",
     "build": "node ./bin/build.js build",
     "clean": "node ./bin/build.js clean",
     "test": "ava ./test/tests.js",
