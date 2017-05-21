@@ -9,13 +9,11 @@
     "noImplicitAny": true,
     "removeComments": false,
     "sourceMap": false,
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "outDir": "./dist"
   },
   "include": [
     "node_modules/*",
     "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules/mustache"
   ]
 }
