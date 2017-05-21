@@ -14,7 +14,7 @@ const chalk = require('chalk');
 		done: () => console.log('> ' + chalk.white.bgGreen.bold(`${type} executed`)),
 	};
 
-	switch(type) {
+	switch(type[0]) {
 		case 'build': {
 			Object.keys(build).forEach(key => build[key]());
 			break;
@@ -26,6 +26,7 @@ const chalk = require('chalk');
 		}
 		default: {
 			Object.keys(build).forEach(key => build[key]());
+			break;
 		}
 	}
 })(process.argv.slice(2));
