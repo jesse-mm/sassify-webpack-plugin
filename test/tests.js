@@ -16,22 +16,27 @@ test.cb('Checking generated files against expected output', t => {
 
 		options.output = { filename: `./test/cases/${testCase}/js/${testCase}.js` };
 
-
 		webpack(options, (err, stats) => {
-			if(err) return t.end(err);
-			if(stats.hasErrors()) return t.end(new Error(stats.toString()));
+			if (err) {
+				return t.end(err);
+			}
+			if (stats.hasErrors()) {
+				return t.end(new Error(stats.toString()));
+			}
 
-			files.forEach((file) => {
-				const expectedFile = readFileOrEmpty(file.dest.replace('scss', 'expected'));
-				const generatedFile = readFileOrEmpty(file.dest);
+			if (!options.noExpect) {
+				files.forEach((file) => {
+					const expectedFile = readFileOrEmpty(file.dest.replace('scss', 'expected'));
+					const generatedFile = readFileOrEmpty(file.dest);
 
-				t.is(expectedFile, generatedFile, 'File contents aren\'t identical.');
-			});
+					t.is(expectedFile, generatedFile, 'File contents aren\'t identical.');
+				});
+			}
 
 			testIndex = testIndex + 1;
 
 			// When all test a ran exit!
-			if(testIndex === cases.length) {
+			if (testIndex === cases.length) {
 				t.end();
 			}
 		});
@@ -41,7 +46,8 @@ test.cb('Checking generated files against expected output', t => {
 function readFileOrEmpty(path) {
 	try {
 		return fs.readFileSync(path, 'utf-8');
-	} catch(e) {
+	}
+	catch (e) {
 		return "";
 	}
 }

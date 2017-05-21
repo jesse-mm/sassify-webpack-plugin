@@ -1,10 +1,10 @@
-const SharedVariablesPlugin = require('../../../src/SharedVariablePlugin');
+const SassifyWebpackPlugin = require('../../../dist/SassifyWebpackPlugin');
 const path = require('path');
 
 module.exports = {
 	entry: path.resolve(__dirname, './index.js'),
 	plugins: [
-		new SharedVariablesPlugin({
+		new SassifyWebpackPlugin({
 			debug: false,
 			files: [
 				{
