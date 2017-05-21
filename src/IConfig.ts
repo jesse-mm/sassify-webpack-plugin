@@ -1,20 +1,20 @@
-import ICustomParser from 'parser/parsers/ICustomParser';
+import IParser from './parser/parsers/IParser';
 
 export interface IConfig {
 	files: Array<IFile>;
 	debug?:boolean;
-	forceWrite?:boolean;
-	customParser?:{
-		parser: ICustomParser;
-		fileExtension:Array<string>|string;
-	};
 }
 
+/**
+ * Interface for files property
+ */
 export interface IFile {
 	source:string;
 	dest:string;
+	// mtime is set by SassifyWebpackPlugin
 	mtime?:string;
 	mapName?:string;
 	disableDirectoryCreation?:boolean;
 	template:string;
+	parser: IParser;
 }

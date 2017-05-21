@@ -9,8 +9,13 @@ import ParserFactory from './parser/ParserFactory';
 import IParser from './parser/parsers/IParser';
 
 class SharedVariablesPlugin {
+	// Stored configuration
 	private _config:IConfig;
 
+	/**
+	 * Setup Sassify Webpack Plugin
+	 * @param config
+	 */
 	constructor(config:IConfig) {
 		this._config = config;
 
@@ -20,59 +25,19 @@ class SharedVariablesPlugin {
 				mtime: null,
 			});
 		});
-
-		// Checks the custom parser if all valid
-		this.customParserChecks();
 	}
 
 	/**
 	 * Apply method is called by webpack
 	 * @param compiler
 	 */
-	apply(compiler:any) {
+	public apply(compiler:any) {
 		// Listen to the make state of the compiler
-		compiler.plugin('make', async (compilation:any, callback:()=>void) => {
+		compiler.plugin('make', async (compilation:any, callback:() => void) => {
 			const sourceFiles = await (this.getSourceFilesToProcess());
 			await this.processFiles(sourceFiles);
 			callback();
 		});
-	}
-
-	private isArray = function(a:any) {
-		return (!!a) && (a.constructor === Array);
-	};
-
-	private customParserChecks() : void {
-		// Simple helper function for checking string
-		const isString = ((fileExtension:string) => typeof fileExtension === 'string');
-
-		// Pre-process customParser
-		if (this._config.customParser) {
-			if (typeof this._config.customParser.parser !== 'function') {
-				throw new Error('[SharedVariablesPlugin] No valid customParser supply a method.');
-			}
-			if (!this._config.customParser.fileExtension) {
-				throw new Error('[SharedVariablesPlugin] customParser object lacks a fileExtension property.')
-			} else {
-				const fileExtension = this._config.customParser.fileExtension;
-
-				if (isString(<string> fileExtension)) {
-					this._config.customParser.fileExtension = [(<string> fileExtension).toUpperCase()];
-				} else if (this.isArray(fileExtension)) {
-					(<Array<string>> fileExtension).forEach((extension: string) => {
-						if (!isString(extension)) {
-							throw new Error('[SharedVariablesPlugin] No valid file extension in Array.');
-						}
-					});
-
-					this._config.customParser.fileExtension = (<Array<string>> fileExtension)
-						.map((extension: string) => extension.toUpperCase());
-				} else {
-					throw new Error(`[SharedVariablesPlugin] customParser has no valid fileExtension must be one of
-					Array or String.`);
-				}
-			}
-		}
 	}
 
 	/**
@@ -86,7 +51,7 @@ class SharedVariablesPlugin {
 			const file = this._config.files[i];
 			const mtime = await this.getFileModificationTime(file);
 
-			if( file.mtime !== mtime) {
+			if (file.mtime !== mtime) {
 				file.mtime = mtime;
 				files.push(file);
 			}
@@ -96,8 +61,9 @@ class SharedVariablesPlugin {
 	}
 
 	/**
-	 * Stats the in file
+	 * Returns the modified time of source file
 	 * @param file
+	 * @returns {Promise<T>}
 	 */
 	private getFileModificationTime(file:IFile) {
 		return pify(fs.stat)(path.resolve(file.source))
@@ -108,29 +74,53 @@ class SharedVariablesPlugin {
 			});
 	}
 
-	private getFileExtension(filePath:string) : string {
+	/**
+	 * Returns the extension of a file
+	 * @param filePath
+	 * @returns {string}
+	 */
+	private getFileExtension(filePath:string):string {
 		return filePath.split(/\./g).pop().toUpperCase();
 	}
 
+	/**
+	 * Process files and runs their assigned parser
+	 * @param files
+	 * @returns {Promise<void>}
+	 */
 	private async processFiles(files:Array<IFile>) {
-		const parsers:Array<IParser> = new Array(files.length);
-
-		const customParser = this._config.customParser;
+		let parsers:Array<IParser> = new Array(files.length);
 
 		for (let i = 0; i < files.length; i++) {
 			const file = files[i];
 			const fileExtension = this.getFileExtension(file.source);
 
-			if (customParser && customParser.fileExtension.indexOf(fileExtension) > -1) {
+			if (file.parser) {
 				console.log(`[Sassify] Using custom parser for ${fileExtension}`);
-				parsers[i] = this._config.customParser.parser;
+				if (typeof file.parser === 'function') {
+					parsers[i] = new (<any> file.parser(file));
+				} else if (typeof (<any> file.parser).default === 'function') {
+					parsers[i] = new (<any> file.parser).default(file);
+				} else {
+					throw new Error('[Sassify] Couldn\'t new the parser.');
+				}
 			} else {
 				parsers[i] = new ParserFactory(file).parser;
 			}
 
 			await parsers[i].run();
+			parsers = [];
 		}
 	}
+
+	/**
+	 * Little helper function for checking if passed parameter is an array
+	 * @param a
+	 * @returns {boolean}
+	 */
+	private isArray = function (a:any) {
+		return (!!a) && (a.constructor === Array);
+	};
 
 }
 
