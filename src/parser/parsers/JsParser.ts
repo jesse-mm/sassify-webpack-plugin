@@ -6,10 +6,18 @@ const fs = require('fs');
 
 export default class JsParser extends AbstractParser implements IParser {
 
+	/**
+	 * Pass file to AbstractParser
+	 * @param file
+	 */
 	constructor(file: IFile) {
 		super(file);
 	}
 
+	/**
+	 * Run the parser
+	 * @returns {Promise<undefined>}
+	 */
 	public run() : Promise<any> {
 		return this.parse();
 	}

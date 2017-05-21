@@ -20,6 +20,10 @@ class ParserFactory {
 		return FileType[fileExtension as keyof typeof FileType];
 	}
 
+	/**
+	 * Get available parser
+	 * @returns {null}
+	 */
 	public get parser() : IParser {
 		const type = this.getParserType();
 		let parser = null;

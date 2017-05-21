@@ -8,10 +8,18 @@ const path = require('path');
 
 export default class TsParser extends AbstractParser implements IParser {
 
+	/**
+	 * Pass file to AbstractParser
+	 * @param file
+	 */
 	constructor(file: IFile) {
 		super(file);
 	}
 
+	/**
+	 * Run the parser
+	 * @returns {Promise<undefined>}
+	 */
 	public run() : Promise<any> {
 		return this.parse();
 	}
