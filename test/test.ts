@@ -1,4 +1,5 @@
-const test = require('ava');
+import test from 'ava';
+import { IFile } from '../src/IConfig';
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
@@ -8,7 +9,7 @@ const cases = fs.readdirSync(path.join(__dirname, "fixtures"));
 test.cb('Checking generated files against expected output', t => {
 	let testIndex = 0;
 
-	cases.forEach(testCase => {
+	cases.forEach((testCase:string) => {
 		const testDirectory = path.join(__dirname, "fixtures", testCase);
 		const configFile = path.join(testDirectory, "webpack.config.js");
 		const options = require(configFile);
@@ -16,16 +17,16 @@ test.cb('Checking generated files against expected output', t => {
 
 		options.output = { filename: `./test/fixtures/${testCase}/js/${testCase}.js` };
 
-		webpack(options, (err, stats) => {
+		webpack(options, (err:Error, stats:any) => {
 			if (err) {
-				return t.end(err);
+				return t.end();
 			}
 			if (stats.hasErrors()) {
-				return t.end(new Error(stats.toString()));
+				return t.end();
 			}
 
 			if (!options.noExpect) {
-				files.forEach((file) => {
+				files.forEach((file:IFile) => {
 					const expectedFile = readFileOrEmpty(file.dest.replace('scss', 'expected'));
 					const generatedFile = readFileOrEmpty(file.dest);
 
@@ -43,7 +44,7 @@ test.cb('Checking generated files against expected output', t => {
 	});
 });
 
-function readFileOrEmpty(path) {
+function readFileOrEmpty(path:string) {
 	try {
 		return fs.readFileSync(path, 'utf-8');
 	}
