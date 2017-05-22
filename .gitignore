@@ -6,6 +6,7 @@ npm-debug.log
 */.idea
 /test/cases/**/scss
 /test/cases/**/js
+/test/*.spec.js
 /src/**/*.js
 /src/**/*.js.map
 coverage/
