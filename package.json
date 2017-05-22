@@ -6,7 +6,7 @@
     "build": "node ./bin/build.js build",
     "clean": "node ./bin/build.js clean",
     "test": "tsc -p ./test/tsconfig.json && ava",
-    "cover": "nyc --reporter lcov --reporter text npm run test",
+    "cover": "tsc --rootDir ./src --outDir ./src && nyc --reporter lcov --reporter text npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -52,11 +52,11 @@
   "ava": {
     "files": [
       "test/*.js",
-      "!test/ConfigMock.js"
+      "!test/mock/**/*"
     ],
     "source": [
-      "./src/*.js",
-      "!dist/**/*"
+      "src/*.js",
+      "!dist/*"
     ],
     "babel": {
       "presets": [

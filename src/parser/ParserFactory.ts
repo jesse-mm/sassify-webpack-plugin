@@ -1,4 +1,4 @@
-import { IFile } from 'IConfig';
+import { IFile } from '../IConfig';
 import FileType from './enum/FileType';
 import IParser from './parsers/IParser';
 import JsParser from './parsers/JsParser';

@@ -1,4 +1,4 @@
-const SassifyWebpackPlugin = require('../../../dist/SassifyWebpackPlugin');
+const SassifyWebpackPlugin = require('../../../src/SassifyWebpackPlugin');
 const path = require('path');
 const CustomParser = require('./CustomParserExample');
 

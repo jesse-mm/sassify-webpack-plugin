@@ -15,6 +15,6 @@ export interface IFile {
 	mtime?:string;
 	mapName?:string;
 	disableDirectoryCreation?:boolean;
-	template:string;
-	parser: IParser;
+	template?:string;
+	parser?: IParser;
 }
