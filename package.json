@@ -27,7 +27,9 @@
     "ava": "^0.19.1",
     "babel-core": "^6.24.1",
     "babel-plugin-transform-remove-strict-mode": "^0.0.2",
+    "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
     "chalk": "^1.1.3",
     "codecov.io": "^0.1.6",
     "mkdirp": "^0.5.1",
@@ -49,13 +51,22 @@
   },
   "ava": {
     "files": [
-      "./test/*.js"
+      "test/*.js",
+      "!test/ConfigMock.js"
     ],
     "source": [
       "./src/*.js",
       "!dist/**/*"
     ],
-    "babel": "inherit"
+    "babel": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ]
   },
   "dependencies": {}
 }
