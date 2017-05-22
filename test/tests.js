@@ -3,18 +3,18 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 
-const cases = fs.readdirSync(path.join(__dirname, "cases"));
+const cases = fs.readdirSync(path.join(__dirname, "fixtures"));
 
 test.cb('Checking generated files against expected output', t => {
 	let testIndex = 0;
 
 	cases.forEach(testCase => {
-		const testDirectory = path.join(__dirname, "cases", testCase);
+		const testDirectory = path.join(__dirname, "fixtures", testCase);
 		const configFile = path.join(testDirectory, "webpack.config.js");
 		const options = require(configFile);
 		const files = options.plugins[0]._config.files;
 
-		options.output = { filename: `./test/cases/${testCase}/js/${testCase}.js` };
+		options.output = { filename: `./test/fixtures/${testCase}/js/${testCase}.js` };
 
 		webpack(options, (err, stats) => {
 			if (err) {
