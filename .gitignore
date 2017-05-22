@@ -7,5 +7,6 @@ npm-debug.log
 /test/cases/**/scss
 /test/cases/**/js
 /src/**/*.js
+/src/**/*.js.map
 coverage/
 .nyc_output
