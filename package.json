@@ -1,5 +1,5 @@
 {
-  "main": "./dist/SassyWebpackPlugin.js",
+  "main": "./dist/SassifyWebpackPlugin.js",
   "version": "0.0.0-semantically-released",
   "scripts": {
     "prepublish": "node ./bin/build.js prepublish",
