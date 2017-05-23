@@ -8,7 +8,7 @@ import { Stats } from 'fs';
 import ParserFactory from './parser/ParserFactory';
 import IParser from './parser/parsers/IParser';
 
-class SharedVariablesPlugin {
+class SassifyWebpackPlugin {
 	// Stored configuration
 	private _config:IConfig;
 
@@ -124,4 +124,4 @@ class SharedVariablesPlugin {
 
 }
 
-module.exports = SharedVariablesPlugin;
+module.exports = SassifyWebpackPlugin;
