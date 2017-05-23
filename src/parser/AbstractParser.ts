@@ -84,13 +84,15 @@ abstract class AbstractParser {
 		try {
 			vmScript = new VMScript(source);
 		} catch (error) {
-			console.error('Failed to compile script.', error);
+			console.error('Failed to compile script.');
+			throw error;
 		}
 
 		try {
 			compiledSource = vm.run(vmScript);
-		} catch (err) {
-			console.error('Failed to execute script.', err);
+		} catch (error) {
+			console.error('Failed to execute script.');
+			throw error;
 		}
 
 		return compiledSource;
