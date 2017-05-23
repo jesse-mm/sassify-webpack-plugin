@@ -1,6 +1,4 @@
-# Sassify Webpack Plugin [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin
-.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields
-.io/codecov/c/github/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin)
+# Sassify Webpack Plugin [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields.io/codecov/c/github/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin)
 Makes sharing variables between JavaScript/TypeScript and SCSS easy.
 Sassify can handle single exports and multi exports; This plugin uses the 'make' hook of webpack.
 
