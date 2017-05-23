@@ -5,11 +5,12 @@
     "target": "ES2015",
     "lib": ["ES6", "ES2015", "dom"],
     "allowSyntheticDefaultImports": true,
-    "allowJs": true,
+    "allowJs": false,
     "noImplicitAny": true,
     "removeComments": false,
     "sourceMap": false,
     "baseUrl": "./",
+    "inlineSourceMap": true,
     "typeRoots": [
       "../node_modules/@types"
     ]
