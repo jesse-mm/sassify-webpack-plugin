@@ -8,9 +8,9 @@ const pify = require('pify');
 const fixtures = fs.readdirSync(path.join(__dirname, "fixtures"));
 
 test.cb('Checking generated files against expected output', t => {
-	let testIndex = 0;
-
-	fixtures.forEach((fixture:string) => {
+	// testFixture calls itself when webpack is done
+	const testFixture = (index = 0) => {
+		const fixture = fixtures[index];
 		const testDirectory = path.join(__dirname, "fixtures", fixture);
 		const configFile = path.join(testDirectory, "webpack.config.js");
 		const options = require(configFile);
@@ -35,14 +35,16 @@ test.cb('Checking generated files against expected output', t => {
 				});
 			}
 
-			testIndex = testIndex + 1;
-
 			// When all test a ran exit!
-			if (testIndex === fixtures.length) {
+			if ((index + 1) === fixtures.length) {
 				t.end();
+			} else {
+				testFixture(index + 1)
 			}
 		});
-	});
+	};
+
+	testFixture();
 });
 
 function readFileOrEmpty(path:string) {
