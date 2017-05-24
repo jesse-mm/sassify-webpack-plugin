@@ -1,4 +1,5 @@
 {
+  "name": "sassify-webpack-plugin",
   "main": "./dist/SassifyWebpackPlugin.js",
   "description": "A JavaScript/TypeScript object parser that generate scss maps/variables",
   "version": "1.0.0",
