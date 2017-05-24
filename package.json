@@ -79,8 +79,5 @@
       "babel-register",
       "babel-polyfill"
     ]
-  },
-  "dependencies": {
-    "semantic-release-cli": "^3.0.3"
   }
 }
