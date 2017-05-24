@@ -1,7 +1,9 @@
 .gitignore
 .travis.yml
 tsconfig.json
-karma.conf.js
+README.md
+yarn.lock
+.babelrc
 /test
 /example
 /src
