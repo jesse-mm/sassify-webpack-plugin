@@ -1,6 +1,5 @@
 .gitignore
 .travis.yml
-tsconfig.json
 README.md
 yarn.lock
 .babelrc
