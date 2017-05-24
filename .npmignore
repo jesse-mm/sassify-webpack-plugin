@@ -1,0 +1,9 @@
+.gitignore
+.travis.yml
+tsconfig.json
+karma.conf.js
+/test
+/example
+/src
+/coverage
+/.nyc_output

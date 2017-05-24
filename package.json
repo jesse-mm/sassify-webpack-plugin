@@ -1,7 +1,7 @@
 {
   "main": "./dist/SassifyWebpackPlugin.js",
   "description": "A JavaScript/TypeScript object parser that generate scss maps/variables",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "keywords": [
     "sass",
     "scss",
@@ -24,11 +24,9 @@
     "test": "tsc -p ./test/tsconfig.json && ava",
     "cover": "tsc --rootDir ./src --outDir ./src --sourcemap && nyc --reporter lcov --reporter text npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "report-coverage": "cat ./coverage/lcov.info | codecov"
   },
   "author": "Jesse Linthorst <jesse.linthorst@gmail.com> (http://jesselinthorst.nl)",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jesse-mm/sassify-webpack-plugin/issues"
   },
@@ -52,7 +50,6 @@
     "nyc": "^10.3.2",
     "path": "^0.12.7",
     "pify": "^2.3.0",
-    "semantic-release": "^6.3.6",
     "shelljs": "^0.7.7",
     "typescript": "^2.3.2",
     "vm2": "^3.4.6",
@@ -82,5 +79,7 @@
       "babel-polyfill"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "semantic-release-cli": "^3.0.3"
+  }
 }
