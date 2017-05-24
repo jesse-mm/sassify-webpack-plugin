@@ -40,20 +40,13 @@
     "@types/pathjs": "^0.8.32",
     "@types/pify": "^0.0.28",
     "ava": "^0.19.1",
-    "babel-core": "^6.24.1",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.24.1",
     "chalk": "^1.1.3",
     "codecov.io": "^0.1.6",
-    "mkdirp": "^0.5.1",
-    "mustache": "^2.3.0",
     "nyc": "^10.3.2",
     "path": "^0.12.7",
-    "pify": "^2.3.0",
     "shelljs": "^0.7.7",
-    "typescript": "^2.3.2",
-    "vm2": "^3.4.6",
     "webpack": "^2.5.1"
   },
   "babel": {
@@ -79,5 +72,14 @@
       "babel-register",
       "babel-polyfill"
     ]
+  },
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "mkdirp": "^0.5.1",
+    "mustache": "^2.3.0",
+    "pify": "^2.3.0",
+    "typescript": "^2.3.3",
+    "vm2": "^3.4.6"
   }
 }
