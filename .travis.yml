@@ -17,4 +17,5 @@ deploy:
     secure: c6/W20HMwKRFLA2TEBTxtBLk1lNYPmqIKw6sgyXrb2Hr+6A1wCRvknACyeh1isCjN37GgtPjkic8WOppREMvyaKciT7enAmhde4+KNs1gc5JyWPhQUr5Ht2Z/AOXceTzXARPaARPOKewkIxP/m9u2c+gmst2Dx0+u1IITZ9TcfYbo1ARD/Z5iBNXIS/EUyX93qNfN3/6WA7kFU7IJa6cwC4p//t35GfWWbtHXRQS/tEQJNHjOGeTgTK3cZLSE5Qne/pqnm/btdduZXanKWYp1cM3dJcG7K3ZYrConCi2IbP3IcwlHN3tMz7QiYdg2JYUEOdLDwDjJ8YslK0D9WeJ9Zjfqe0PMJnqJVSEwHW8jgLQGnwtshf/bUagLjZR+vg+k9gqtXhOe65a3tfbBvyMnsd7uaiPhhnMQPMiJ0Rgla66lKR0e66/UqyxXry/aGd3PXyah6e7DKHCq38FsoIHOuLtsZx3kYNzkWPcvmym553BsSCTvnxiBNCYCcrQ3mFb2ls9kQnWgg0PYEdDfeZ+LIsyRiSKbOUx9omzgsleADXluIteVix0P42/R8aGmDSogwm7lPfB1M/+exeLdQ2HhTejXHuaiE6O/qZP81nR28p4+40OSk3hKh/hNJQfDtaAL4NgDkULzhKPuPIFtzgOjngIjXZSjNTI2jJbZLn+/f8=
   on:
     tags: true
+    node: '7'
   skip_cleanup: true
