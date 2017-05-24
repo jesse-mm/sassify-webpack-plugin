@@ -1,9 +1,20 @@
 # Sassify Webpack Plugin (BETA) [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields.io/codecov/c/github/jesse-mm/sassify-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin)
-Makes sharing variables between JavaScript/TypeScript and SCSS easy.
-Sassify can handle single exports and multi exports; This plugin uses the 'make' hook of webpack.
+Sassify Webpack is a plugin that hooks into the make process of webpack.
+It makes sharing variables between JavaScript/TypeScript and SCSS easy.
 
-In your webpack config:
+## Prerequisite
+- [Node 6.x.x](https://nodejs.org/en/download/) or higher
+- [NPM 3.x.x](https://nodejs.org/en/download/) or higher
+- [Yarn 0.2x.x](https://yarnpkg.com/en/docs/install) or higher
+
+## Installation
+```yarn add sassify-webpack-plugin --dev```
+
+## Getting started
+After installation require the Sassify plugin in your webpack config.
+
 ```javascript
+// Require the plugin
 const SassifyWebpackPlugin = require('sassify-webpack-plugin');
 // Dependency
 const path = require('path');
@@ -22,8 +33,9 @@ module.exports = {
 };
 ```
 
+## Configuration Options
 Options:
-In the files object the following configuration options are available:
+In the files array each object can have the following additional options.
 
 **mapName**
 When generating a single export ```export default { ... }``` it's possible to assign a different mapName.
@@ -38,6 +50,7 @@ Using another template can be done by:
 2) Or by using predefined templates:
 
 ```javascript
+const SassifyWebpackPlugin = require('sassify-webpack-plugin');
 const template = require('sassify-webpack-plugin/template');
 
 new SassifyWebpackPlugin({
@@ -45,7 +58,11 @@ new SassifyWebpackPlugin({
 		{
 			source: path.resolve(__dirname, './singleExport.js'),
 			dest: path.resolve(__dirname, './scss/singleExport.scss'),
-			template: template.vars,
+			template: template.SCSS_VARS,
 		},
 ]})
 ```
+
+**parser**
+It's possible to write a custom parser. Reference
+```node_modules/sassify-webpack-plugin/test/fixtures/ExportFileCustom``` for implementation details.
