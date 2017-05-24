@@ -1,4 +1,5 @@
 const SassifyWebpackPlugin = require('../../../src/SassifyWebpackPlugin');
+import template from '../../../src/template';
 const path = require('path');
 
 module.exports = {
@@ -23,7 +24,7 @@ module.exports = {
 				{
 					source: path.resolve(__dirname, './singleExport.ts'),
 					dest: path.resolve(__dirname, './scss/singleExport-varsOnly.scss'),
-					template: './src/parser/template/scss-vars.mustache',
+					template: template.SCSS_VAR,
 				}
 			],
 		}),

@@ -1,5 +1,6 @@
 import { IFile } from '../IConfig';
 import * as babel from 'babel-core';
+import template from '../template';
 const { NodeVM, VMScript } = require('vm2');
 const mustache = require('mustache');
 const pify = require('pify');
@@ -10,7 +11,7 @@ const mkdirp = require('mkdirp');
 abstract class AbstractParser {
 	protected file:IFile = null;
 	private templateFile:string;
-	private _defaultTemplate:string = path.resolve(__dirname, './template/scss-map.mustache');
+	private _defaultTemplate:string = template.SCSS_MAP;
 	private _varMap:IVarMap = {};
 	private _rootKey:string;
 
@@ -52,7 +53,7 @@ abstract class AbstractParser {
 	 * @param source
 	 * @returns {Object}
 	 */
-	protected evaluateSource(source:string):Object {
+	protected evaluateSource(source:string):{[x:string]:string} {
 		source = this.transformSource(source);
 		return this.runSource(source);
 	}
@@ -75,7 +76,7 @@ abstract class AbstractParser {
 	 * @param source
 	 * @returns {Object}
 	 */
-	private runSource(source:string):Object {
+	private runSource(source:string):{[x:string]:string} {
 		// Spawn a new vm
 		const vm = new NodeVM();
 		let vmScript = source;
