@@ -1,6 +1,22 @@
 {
   "main": "./dist/SassifyWebpackPlugin.js",
+  "description": "A JavaScript/TypeScript object parser that generate scss maps/variables",
   "version": "0.0.0-semantically-released",
+  "keywords": [
+    "sass",
+    "scss",
+    "javascript",
+    "js",
+    "typescript",
+    "ts",
+    "webpack",
+    "plugin"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
   "scripts": {
     "prepublish": "node ./bin/build.js build",
     "build": "node ./bin/build.js build",
