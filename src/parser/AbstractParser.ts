@@ -150,7 +150,8 @@ abstract class AbstractParser {
 				// Replace key with map-name/filename if exists (when doing a export default { ... })
 				if (dataKeys.length === 1) {
 					const keyCopy = key;
-					key = this.file.mapName ? this.file.mapName : this.getFileName(this.file.dest).split('.')[0];
+					key = this.file.mapName ? this.file.mapName : this.getFileName(this.file.dest)
+						.split('.')[0].replace(/^_/, '');
 					// Create a new key and content with the new key name, remove the old key from object
 					if (data.hasOwnProperty(keyCopy)) {
 						data[key] = data[keyCopy];
