@@ -1,6 +1,9 @@
-# Sassify Webpack Plugin (BETA) [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields.io/codecov/c/github/jesse-mm/sassify-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin)
+# Sassify Webpack Plugin [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields.io/codecov/c/github/jesse-mm/sassify-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin)
 Sassify Webpack is a plugin that hooks into the make process of webpack.
 It makes sharing variables between JavaScript/TypeScript and SCSS easy.
+
+**NOTE** When using Webpack HMR make sure you include your JS/TS file somewhere in your project so it's picked up as
+asset by webpack.
 
 ## Prerequisite
 - [Node 6.x.x](https://nodejs.org/en/download/) or higher
