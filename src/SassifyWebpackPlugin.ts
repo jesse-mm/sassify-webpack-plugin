@@ -31,7 +31,7 @@ class SassifyWebpackPlugin {
 	 * Apply method is called by webpack
 	 * @param compiler
 	 */
-	public apply(compiler:any) {
+	public apply(compiler:any):void {
 		// Listen to the make state of the compiler
 		compiler.plugin('make', async (compilation:any, callback:() => void) => {
 			const sourceFiles = await (this.getSourceFilesToProcess());
@@ -42,9 +42,9 @@ class SassifyWebpackPlugin {
 
 	/**
 	 * Returns files to be processed from JS to SCSS equivalent.
-	 * @returns {Promise.<Array>}
+	 * @returns {Promise<Array<IFile>>}
 	 */
-	private async getSourceFilesToProcess() {
+	private async getSourceFilesToProcess():Promise<Array<IFile>> {
 		const files:Array<IFile> = [];
 
 		for (let i = 0; i < this._config.files.length; i++) {
@@ -63,12 +63,12 @@ class SassifyWebpackPlugin {
 	/**
 	 * Returns the modified time of source file
 	 * @param file
-	 * @returns {Promise<T>}
+	 * @returns {Promise<string>}
 	 */
-	private getFileModificationTime(file:IFile) {
+	private getFileModificationTime(file:IFile):Promise<string> {
 		return pify(fs.stat)(path.resolve(file.source))
 			.then((statResult:Stats) => {
-				return statResult.mtime.getTime();
+				return statResult.mtime.getTime().toString();
 			}).catch((statError:Error) => {
 				throw statError;
 			});

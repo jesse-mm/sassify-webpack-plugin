@@ -15,16 +15,16 @@ class ParserFactory {
 	 * Get specified parser
 	 * @returns FileType
 	 */
-	private getParserType() : FileType {
+	private getParserType():FileType {
 		const fileExtension = this._file.source.split('.').pop().toUpperCase();
 		return FileType[fileExtension as keyof typeof FileType];
 	}
 
 	/**
-	 * Get available parser
-	 * @returns {null}
+	 * Get a predefined parser
+	 * @returns {TsParser|JsParser}
 	 */
-	public get parser() : IParser {
+	public get parser():IParser {
 		const type = this.getParserType();
 		let parser = null;
 

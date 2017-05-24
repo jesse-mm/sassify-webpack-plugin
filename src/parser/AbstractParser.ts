@@ -11,7 +11,7 @@ abstract class AbstractParser {
 	protected file:IFile = null;
 	private templateFile:string;
 	private _defaultTemplate:string = path.resolve(__dirname, './template/scss-map.mustache');
-	private _varMap:{[index:string]:Array<{keyName:string;keyValue:string}>} = {};
+	private _varMap:IVarMap = {};
 	private _rootKey:string;
 
 	/**
@@ -25,9 +25,9 @@ abstract class AbstractParser {
 	/**
 	 * Flattens object and prepares the object for the mustache template engine
 	 * @param obj
-	 * @returns {{[p: string]: Array<{keyName: string, keyValue: string}>}}
+	 * @returns {IVarMap}
 	 */
-	protected mapObject(obj:{[index:string]:string}) {
+	protected mapObject(obj:{[index:string]:string}):IVarMap {
 		if(!obj) {
 			return;
 		}
@@ -50,9 +50,9 @@ abstract class AbstractParser {
 	/**
 	 * Transforms the source and then runs it
 	 * @param source
-	 * @returns {null}
+	 * @returns {Object}
 	 */
-	protected evaluateSource(source:string) {
+	protected evaluateSource(source:string):Object {
 		source = this.transformSource(source);
 		return this.runSource(source);
 	}
@@ -62,7 +62,7 @@ abstract class AbstractParser {
 	 * @param source
 	 * @returns {string}
 	 */
-	private transformSource(source:string) {
+	private transformSource(source:string):string {
 		// Transform source to es5
 		return babel.transform(source, {
 			ast: false,
@@ -73,9 +73,9 @@ abstract class AbstractParser {
 	/**
 	 * The source code is evaluated through the VM2 (sandbox) module
 	 * @param source
-	 * @returns {null}
+	 * @returns {Object}
 	 */
-	private runSource(source:string) {
+	private runSource(source:string):Object {
 		// Spawn a new vm
 		const vm = new NodeVM();
 		let vmScript = source;
@@ -103,7 +103,7 @@ abstract class AbstractParser {
 	 * @param filePath
 	 * @returns {undefined|string}
 	 */
-	private getFileName(filePath:string) : string {
+	private getFileName(filePath:string):string {
 		return filePath.split(/\//).pop();
 	}
 
@@ -111,7 +111,7 @@ abstract class AbstractParser {
 	 * Read mustache template file
 	 * @returns {Promise<any>}
 	 */
-	private async readTemplate() {
+	private async readTemplate():Promise<any> {
 		const template = !this.templateFile ? this._defaultTemplate : this.templateFile;
 		return pify(fs.readFile)(template, 'utf-8');
 	}
@@ -121,7 +121,7 @@ abstract class AbstractParser {
 	 * @param templateData
 	 * @returns {Promise<any>}
 	 */
-	private async writeTemplate(templateData:string) {
+	private async writeTemplate(templateData:string):Promise<any> {
 		const fileToWrite:()=>Promise<any> = () => pify(fs.writeFile)(this.file.dest, templateData, 'utf8');
 
 		if (!this.file.disableDirectoryCreation) {
@@ -136,7 +136,7 @@ abstract class AbstractParser {
 	 * @param jsObject
 	 * @returns {Promise<void>}
 	 */
-	protected async createTemplate(jsObject:{[x:string]:string}) {
+	protected async createTemplate(jsObject:{[x:string]:string}):Promise<any> {
 		const data = this.mapObject(jsObject);
 
 		if (data) {
@@ -162,7 +162,6 @@ abstract class AbstractParser {
 				processedTemplate += (index + 1) === dataKeys.length ? "\n" : "\n\n";
 			});
 
-
 			await this.writeTemplate(mustache.render(processedTemplate, data));
 		}
 	}
@@ -171,6 +170,10 @@ abstract class AbstractParser {
 	 * Abstract implementation of run
 	 */
 	abstract async run():Promise<any>;
+}
+
+interface IVarMap {
+	[index:string]:Array<{keyName:string;keyValue:string}>;
 }
 
 export default AbstractParser;
