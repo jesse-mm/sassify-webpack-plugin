@@ -819,10 +819,6 @@ babel-plugin-transform-regenerator@^6.24.1:
   dependencies:
     regenerator-transform "0.9.11"
 
-babel-plugin-transform-remove-strict-mode@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-remove-strict-mode/-/babel-plugin-transform-remove-strict-mode-0.0.2.tgz#913685aab95439f3a0ed88e588fbd5e997890579"
-
 babel-plugin-transform-strict-mode@^6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.24.1.tgz#d5faf7aa578a65bbe591cf5edae04a0c67020758"
@@ -4386,10 +4382,6 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
-
-typescript-compiler@^1.4.1-2:
-  version "1.4.1-2"
-  resolved "https://registry.yarnpkg.com/typescript-compiler/-/typescript-compiler-1.4.1-2.tgz#ba4f7db22d91534a1929d90009dce161eb72fd3f"
 
 typescript@^2.3.2:
   version "2.3.2"
