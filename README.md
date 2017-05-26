@@ -5,18 +5,19 @@ It makes sharing variables between JavaScript/TypeScript and SCSS easy.
 ## Prerequisite
 - [Node 6.x.x](https://nodejs.org/en/download/) or higher
 - [NPM 3.x.x](https://nodejs.org/en/download/) or higher
-- [Yarn 0.2x.x](https://yarnpkg.com/en/docs/install) or higher
 
 ## Installation
+```npm i -D sassify-webpack-plugin```
+Or when using yarn
 ```yarn add sassify-webpack-plugin --dev```
 
-## Yarn Commands
+## NPM Commands
 
 ```
-yarn build	Create a dist folder containing the build
-yarn clean	Remove the dist folder with all its contents
-yarn test	Run AVA test runner
-yarn cover	Get coverage details
+npm run build	Create a dist folder containing the build
+npm run clean	Remove the dist folder with all its contents
+npm run test	Run AVA test runner
+npm run cover	Get coverage details
 ```
 
 ## Getting started
