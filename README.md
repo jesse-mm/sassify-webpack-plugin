@@ -79,3 +79,6 @@ new SassifyWebpackPlugin({
 **parser**
 It's possible to write a custom parser. Reference
 ```node_modules/sassify-webpack-plugin/test/fixtures/ExportFileCustom``` for implementation details.
+
+## Docs
+[Typedoc](https://jesse-mm.github.io/sassify-webpack-plugin/doc/typedoc/)
