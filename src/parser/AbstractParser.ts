@@ -9,18 +9,16 @@ const path = require('path');
 const mkdirp = require('mkdirp');
 
 abstract class AbstractParser {
+	// Reference to file object
 	protected file:IFile = null;
-	private templateFile:string;
-	private _defaultTemplate:string = template.SCSS_MAP;
-	private _varMap:IVarMap = {};
-	private _rootKey:string;
+	// Default template for mustache
+	private static DEFAULT_TEMPLATE:string = template.SCSS_MAP;
 
 	/**
 	 * @param file
 	 */
 	constructor(file:IFile) {
 		this.file = file;
-		this.templateFile = file.template ? path.resolve(file.template) : path.resolve(this._defaultTemplate);
 	}
 
 	/**
@@ -33,19 +31,22 @@ abstract class AbstractParser {
 			return;
 		}
 
+		const varMap:IVarMap = {};
+		let rootKey:string = '';
+
 		for (const key in obj) {
 			if (typeof obj[key] === "object" && obj[key] !== null) {
-				this._rootKey = key;
+				rootKey = key;
 				this.mapObject(<any> obj[key]);
 			} else {
-				if (!this._varMap[this._rootKey]) {
-					this._varMap[this._rootKey] = [];
+				if (!varMap[rootKey]) {
+					varMap[rootKey] = [];
 				}
-				this._varMap[this._rootKey].push({ keyName: key, keyValue: obj[key] });
+				varMap[rootKey].push({ keyName: key, keyValue: obj[key] });
 			}
 		}
 
-		return this._varMap;
+		return varMap;
 	}
 
 	/**
@@ -113,7 +114,7 @@ abstract class AbstractParser {
 	 * @returns {Promise<any>}
 	 */
 	private async readTemplate():Promise<any> {
-		const template = !this.templateFile ? this._defaultTemplate : this.templateFile;
+		const template = !this.file.template ? AbstractParser.DEFAULT_TEMPLATE : this.file.template;
 		return pify(fs.readFile)(template, 'utf-8');
 	}
 
