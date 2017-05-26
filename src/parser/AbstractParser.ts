@@ -22,32 +22,57 @@ abstract class AbstractParser {
 	}
 
 	/**
-	 * Flattens object and prepares the object for the mustache template engine
+	 * Flattens compiled object and prepares the object for the mustache template engine
 	 * @param obj
 	 * @returns {IVarMap}
 	 */
-	protected mapObject(obj:{[index:string]:string}):IVarMap {
+	protected mapObject(obj:{[index:string]:any}):IVarMap {
 		if(!obj) {
 			return;
 		}
 
 		const varMap:IVarMap = {};
-		let rootKey:string = '';
-
-		for (const key in obj) {
-			if (typeof obj[key] === "object" && obj[key] !== null) {
-				rootKey = key;
-				this.mapObject(<any> obj[key]);
-			} else {
-				if (!varMap[rootKey]) {
-					varMap[rootKey] = [];
+		const recurse = (currentObject:any, rootKey?:string) => {
+			Object.keys(currentObject).forEach((key:string) => {
+				if (typeof currentObject[key] === 'string') {
+					if(rootKey) {
+						if (!varMap[`${rootKey}`]) {
+							varMap[`${rootKey}`] = [];
+						}
+						varMap[rootKey].push({ keyName: key, keyValue: currentObject[key] })
+					}
+				} else if(typeof currentObject[key] === 'object' && currentObject[key] !== null) {
+					recurse(currentObject[key], key);
 				}
-				varMap[rootKey].push({ keyName: key, keyValue: obj[key] });
-			}
-		}
+			});
+		};
+
+		recurse(obj);
 
 		return varMap;
 	}
+
+	/**
+	 * 	protected mapObject(obj:{[index:string]:string}):IVarMap {
+		if(!obj) {
+			return;
+		}
+
+		for (const key in obj) {
+			if (typeof obj[key] === "object" && obj[key] !== null) {
+				this._rootKey = key;
+				this.mapObject(<any> obj[key]);
+			} else {
+				if (!this._varMap[this._rootKey]) {
+					this._varMap[this._rootKey] = [];
+				}
+				this._varMap[this._rootKey].push({ keyName: key, keyValue: obj[key] });
+			}
+		}
+
+		return this._varMap;
+	}
+	 */
 
 	/**
 	 * Transforms the source and then runs it
