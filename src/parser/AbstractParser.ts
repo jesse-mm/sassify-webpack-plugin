@@ -1,6 +1,6 @@
 import { IFile } from '../IConfig';
 import * as babel from 'babel-core';
-import template from '../template';
+const template = require('../template');
 const { NodeVM, VMScript } = require('vm2');
 const mustache = require('mustache');
 const pify = require('pify');

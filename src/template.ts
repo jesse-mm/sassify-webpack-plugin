@@ -5,4 +5,4 @@ const template = {
 	SCSS_VAR: path.resolve(__dirname, './parser/template/scss-vars.mustache'),
 };
 
-export default template;
+module.exports = template;
