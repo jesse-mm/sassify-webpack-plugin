@@ -32,10 +32,38 @@ class SassifyWebpackPlugin {
 	 * @param compiler
 	 */
 	public apply(compiler:any):void {
+		let sourceFiles:Array<IFile> = null;
+
 		// Listen to the make state of the compiler
 		compiler.plugin('make', async (compilation:any, callback:() => void) => {
-			const sourceFiles = await (this.getSourceFilesToProcess());
+			sourceFiles = await (this.getSourceFilesToProcess());
 			await this.processFiles(sourceFiles);
+			callback();
+
+		});
+
+		// When a file is not included in the build we still want to watch it
+		compiler.plugin('emit', (compilation:any, callback:()=>void) => {
+			// No sourceFiles found
+			if (sourceFiles.length === 0) {
+				this._config.files.forEach(async (file) => {
+					if (compilation.fileDependencies.indexOf(file.source) === -1) {
+						// Push file to compilation
+						compilation.fileDependencies.push(file.source);
+						// Read and return compilation asset
+						const fileData:string = await pify(fs.readFile)(file.source, "utf8");
+						compilation.assets[file.source] = {
+							source: () => {
+								return fileData;
+							},
+							size: () => {
+								return fileData.length;
+							}
+						};
+					}
+				});
+			}
+
 			callback();
 		});
 	}
