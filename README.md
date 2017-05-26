@@ -60,7 +60,7 @@ Using another template can be done by:
 
 ```javascript
 const SassifyWebpackPlugin = require('sassify-webpack-plugin');
-const template = require('sassify-webpack-plugin/template');
+const template = require('sassify-webpack-plugin/dist/template');
 
 new SassifyWebpackPlugin({
 	files: [
