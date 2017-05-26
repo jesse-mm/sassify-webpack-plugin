@@ -2,9 +2,6 @@
 Sassify Webpack is a plugin that hooks into the make process of webpack.
 It makes sharing variables between JavaScript/TypeScript and SCSS easy.
 
-**NOTE** When using Webpack HMR make sure you include your JS/TS file somewhere in your project so it's picked up as
-asset by webpack.
-
 ## Prerequisite
 - [Node 6.x.x](https://nodejs.org/en/download/) or higher
 - [NPM 3.x.x](https://nodejs.org/en/download/) or higher
@@ -12,6 +9,13 @@ asset by webpack.
 
 ## Installation
 ```yarn add sassify-webpack-plugin --dev```
+
+## Yarn Commands
+
+```yarn build```	Create a dist folder containing the build
+```yarn clean```	Remove the dist folder with all its contents
+```yarn test```		Run AVA test runner
+```yarn cover```	Get coverage details
 
 ## Getting started
 After installation require the Sassify plugin in your webpack config.
