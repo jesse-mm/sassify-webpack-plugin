@@ -53,28 +53,6 @@ abstract class AbstractParser {
 	}
 
 	/**
-	 * 	protected mapObject(obj:{[index:string]:string}):IVarMap {
-		if(!obj) {
-			return;
-		}
-
-		for (const key in obj) {
-			if (typeof obj[key] === "object" && obj[key] !== null) {
-				this._rootKey = key;
-				this.mapObject(<any> obj[key]);
-			} else {
-				if (!this._varMap[this._rootKey]) {
-					this._varMap[this._rootKey] = [];
-				}
-				this._varMap[this._rootKey].push({ keyName: key, keyValue: obj[key] });
-			}
-		}
-
-		return this._varMap;
-	}
-	 */
-
-	/**
 	 * Transforms the source and then runs it
 	 * @param source
 	 * @returns {Object}
