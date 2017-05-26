@@ -19,7 +19,6 @@
     "npm": ">= 3.0.0"
   },
   "scripts": {
-    "prepublish": "node ./bin/build.js build",
     "build": "node ./bin/build.js build",
     "clean": "node ./bin/build.js clean",
     "test": "tsc -p ./test/tsconfig.json && ava",
