@@ -5,6 +5,7 @@ yarn.lock
 .babelrc
 /test
 /example
+/doc
 /src
 /bin
 /coverage
