@@ -6,5 +6,6 @@ yarn.lock
 /test
 /example
 /src
+/bin
 /coverage
 /.nyc_output
