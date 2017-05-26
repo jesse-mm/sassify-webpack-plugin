@@ -12,10 +12,12 @@ It makes sharing variables between JavaScript/TypeScript and SCSS easy.
 
 ## Yarn Commands
 
-```yarn build```	Create a dist folder containing the build
-```yarn clean```	Remove the dist folder with all its contents
-```yarn test```		Run AVA test runner
-```yarn cover```	Get coverage details
+```
+yarn build	Create a dist folder containing the build
+yarn clean	Remove the dist folder with all its contents
+yarn test	Run AVA test runner
+yarn cover	Get coverage details
+```
 
 ## Getting started
 After installation require the Sassify plugin in your webpack config.
