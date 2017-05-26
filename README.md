@@ -1,4 +1,4 @@
-# Sassify Webpack Plugin [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields.io/codecov/c/github/jesse-mm/sassify-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin)
+# Sassify Webpack Plugin [![Build Status](https://img.shields.io/travis/jesse-mm/sassify-webpack-plugin.svg?style=flat-square)](https://travis-ci.org/jesse-mm/sassify-webpack-plugin) [![codecov](https://img.shields.io/codecov/c/github/jesse-mm/sassify-webpack-plugin/master.svg?style=flat-square)](https://codecov.io/gh/jesse-mm/sassify-webpack-plugin) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/jesse-mm/sassify-webpack-plugin/master/LICENSE)
 Sassify Webpack is a plugin that hooks into the make process of webpack.
 It makes sharing variables between JavaScript/TypeScript and SCSS easy.
 
