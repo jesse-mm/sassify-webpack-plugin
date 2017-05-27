@@ -142,4 +142,4 @@ $meeting: (
 ```
 
 ## Docs
-[Typedoc](https://jesse-mm.github.io/sassify-webpack-plugin/doc/typedoc/)
+[Typedoc](http://rawgit.com/jesse-mm/sassify-webpack-plugin/master/doc/typedoc/)
