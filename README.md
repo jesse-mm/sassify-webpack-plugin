@@ -81,8 +81,6 @@ It's possible to write a custom parser. Reference
 ```node_modules/sassify-webpack-plugin/test/fixtures/ExportFileCustom``` for implementation details.
 
 ## Example
-Input JavaScript using SCSS vars template
-
 Input: sharedObject.js
 ```javascript
 export const mediaQueries = {
@@ -119,7 +117,7 @@ export const pallete = {
 
 ```
 
-Output: sharedObject.scss
+Output: sharedObject.scss (Rendered using SCSS map template)
 ```scss
 $mediaQueries: (
 	SMALL: '(min-width: 480px)',
