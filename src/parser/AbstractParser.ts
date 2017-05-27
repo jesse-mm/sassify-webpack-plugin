@@ -169,7 +169,7 @@ abstract class AbstractParser {
 					key = this.file.mapName ? this.file.mapName : this.getFileName(this.file.dest)
 						.split('.')[0].replace(/^_/, '');
 					// Create a new key and content with the new key name, remove the old key from object
-					if (data.hasOwnProperty(keyCopy)) {
+					if (key !== keyCopy && data.hasOwnProperty(keyCopy)) {
 						data[key] = data[keyCopy];
 						delete data[keyCopy];
 					}
