@@ -80,5 +80,68 @@ new SassifyWebpackPlugin({
 It's possible to write a custom parser. Reference
 ```node_modules/sassify-webpack-plugin/test/fixtures/ExportFileCustom``` for implementation details.
 
+## Example
+Input JavaScript using SCSS vars template
+
+Input: sharedObject.js
+```javascript
+export const mediaQueries = {
+	SMALL: '(min-width: 480px)',
+	MEDIUM: '(min-width: 720px)',
+	LARGE: '(min-width: 1024px)',
+};
+
+// sassify-disable
+export const colors = {
+	starlightBlue: '#08BECD',
+	lorna: '#67C5CD',
+	dollarOnATrack: '#17ABB7',
+	oceanStorm: '#063E54',
+	weakest: '358391',
+};
+// sassify-enable
+
+export const pallete = {
+	ohBabe: {
+		starlightBlue: '#08BECD',
+		lorna: '#67C5CD',
+		dollarOnATrack: '#17ABB7',
+		oceanStorm: '#063E54',
+		weakest: '358391',
+	},
+	meeting: {
+		radio: '#4C6974',
+		oceanBlue: '#93CCDF',
+		whispy: '#E7E9E9',
+		orangeYou: '#E98B53',
+	},
+};
+
+```
+
+Output: mediaQueries.scss
+```scss
+$mediaQueries: (
+	SMALL: '(min-width: 480px)',
+	MEDIUM: '(min-width: 720px)',
+	LARGE: '(min-width: 1024px)',
+);
+
+$ohBabe: (
+	starlightBlue: '#08BECD',
+	lorna: '#67C5CD',
+	dollarOnATrack: '#17ABB7',
+	oceanStorm: '#063E54',
+	weakest: '358391',
+);
+
+$meeting: (
+	radio: '#4C6974',
+	oceanBlue: '#93CCDF',
+	whispy: '#E7E9E9',
+	orangeYou: '#E98B53',
+);
+```
+
 ## Docs
 [Typedoc](https://jesse-mm.github.io/sassify-webpack-plugin/doc/typedoc/)
