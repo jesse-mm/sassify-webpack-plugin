@@ -58,8 +58,20 @@ abstract class AbstractParser {
 	 * @returns {Object}
 	 */
 	protected evaluateSource(source:string):{[x:string]:string} {
+		source = this.stripExports(source);
 		source = this.transformSource(source);
 		return this.runSource(source);
+	}
+
+	/**
+	 * stripExports omitted which is surrounded by a sassify-disable/enable string
+	 * @param source
+	 * @returns {string}
+	 */
+	private stripExports(source:string) : string {
+		return source.
+			replace(/^\/\/[\s\S]sassify-disable[\s\S]*sassify-enable\s*$/gm, '').
+			replace(/\/\*[\s\S]+sassify-disable[\s\S]*sassify-enable[\s\S]*\*\//gm, '');
 	}
 
 	/**
