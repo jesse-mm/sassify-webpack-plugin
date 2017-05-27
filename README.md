@@ -119,7 +119,7 @@ export const pallete = {
 
 ```
 
-Output: mediaQueries.scss
+Output: sharedObject.scss
 ```scss
 $mediaQueries: (
 	SMALL: '(min-width: 480px)',
