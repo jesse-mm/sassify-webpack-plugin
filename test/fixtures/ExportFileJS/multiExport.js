@@ -24,6 +24,12 @@ export const colors = {
 	weakest: '358391',
 };
 
+export const numericExport = {
+	zero: 0,
+	'1080p': 1080,
+	'1440p': 2560,
+};
+
 /* sassify-disable */
 export const dontSassifyMeToo = {
 	INTERNAL_USED_VAR: 'foo',

@@ -12,6 +12,11 @@ exports.colors = {
     oceanStorm: '#063E54',
     weakest: '358391',
 };
+exports.numericExport = {
+    zero: 0,
+    '1080p': 1080,
+    '1440p': 2560,
+};
 exports.pallete = {
     ohBabe: {
         starlightBlue: '#08BECD',

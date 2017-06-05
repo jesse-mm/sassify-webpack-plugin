@@ -12,6 +12,12 @@ export const colors = {
 	weakest: '358391',
 };
 
+export const numericExport = {
+	zero: 0,
+	'1080p': 1080,
+	'1440p': 2560,
+};
+
 export const pallete = {
 	ohBabe: {
 		starlightBlue: '#08BECD',
