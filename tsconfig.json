@@ -9,8 +9,7 @@
     "noImplicitAny": true,
     "removeComments": false,
     "sourceMap": false,
-    "baseUrl": "./src",
-    "outDir": "./dist"
+    "baseUrl": "./src"
   },
   "include": [
     "node_modules/*",
