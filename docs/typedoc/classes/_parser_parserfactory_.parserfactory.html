@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IFile | sassify-webpack-plugin</title>
+	<title>ParserFactory | sassify-webpack-plugin</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,31 +56,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_iconfig_.html">&quot;IConfig&quot;</a>
+					<a href="../modules/_parser_parserfactory_.html">&quot;parser/ParserFactory&quot;</a>
 				</li>
 				<li>
-					<a href="_iconfig_.ifile.html">IFile</a>
+					<a href="_parser_parserfactory_.parserfactory.html">ParserFactory</a>
 				</li>
 			</ul>
-			<h1>Interface IFile</h1>
+			<h1>Class ParserFactory</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface for files property</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IFile</span>
+						<span class="target">ParserFactory</span>
 					</li>
 				</ul>
 			</section>
@@ -89,91 +82,120 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_parser_parserfactory_.parserfactory.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#dest" class="tsd-kind-icon">dest</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#disabledirectorycreation" class="tsd-kind-icon">disable<wbr>Directory<wbr>Creation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#mapname" class="tsd-kind-icon">map<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#mtime" class="tsd-kind-icon">mtime</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#parser" class="tsd-kind-icon">parser</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#source" class="tsd-kind-icon">source</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#template" class="tsd-kind-icon">template</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_parser_parserfactory_.parserfactory.html#_file" class="tsd-kind-icon">_file</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_parser_parserfactory_.parserfactory.html#parser" class="tsd-kind-icon">parser</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_parser_parserfactory_.parserfactory.html#getparsertype" class="tsd-kind-icon">get<wbr>Parser<wbr>Type</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Parser<wbr>Factory<span class="tsd-signature-symbol">(</span>file<span class="tsd-signature-symbol">: </span><a href="../interfaces/_iconfig_.ifile.html" class="tsd-signature-type">IFile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_parser_parserfactory_.parserfactory.html" class="tsd-signature-type">ParserFactory</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/parser/ParserFactory.ts#L8">parser/ParserFactory.ts:8</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>file: <a href="../interfaces/_iconfig_.ifile.html" class="tsd-signature-type">IFile</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_parser_parserfactory_.parserfactory.html" class="tsd-signature-type">ParserFactory</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dest" class="tsd-anchor"></a>
-					<h3>dest</h3>
-					<div class="tsd-signature tsd-kind-icon">dest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_file" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _file</h3>
+					<div class="tsd-signature tsd-kind-icon">_file<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_iconfig_.ifile.html" class="tsd-signature-type">IFile</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L13">IConfig.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/parser/ParserFactory.ts#L8">parser/ParserFactory.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="disabledirectorycreation" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> disable<wbr>Directory<wbr>Creation</h3>
-					<div class="tsd-signature tsd-kind-icon">disable<wbr>Directory<wbr>Creation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L17">IConfig.ts:17</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mapname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> map<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">map<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L16">IConfig.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mtime" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mtime</h3>
-					<div class="tsd-signature tsd-kind-icon">mtime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L15">IConfig.ts:15</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
 					<a name="parser" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parser</h3>
-					<div class="tsd-signature tsd-kind-icon">parser<span class="tsd-signature-symbol">:</span> <a href="_parser_parsers_iparser_.iparser.html" class="tsd-signature-type">IParser</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L19">IConfig.ts:19</a></li>
-						</ul>
-					</aside>
+					<h3>parser</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> parser<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_parser_parsers_iparser_.iparser.html" class="tsd-signature-type">IParser</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/parser/ParserFactory.ts#L27">parser/ParserFactory.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get a predefined parser</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_parser_parsers_iparser_.iparser.html" class="tsd-signature-type">IParser</a></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="source" class="tsd-anchor"></a>
-					<h3>source</h3>
-					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L12">IConfig.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="template" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> template</h3>
-					<div class="tsd-signature tsd-kind-icon">template<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/23d1d4d/src/IConfig.ts#L18">IConfig.ts:18</a></li>
-						</ul>
-					</aside>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="getparsertype" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Parser<wbr>Type</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Parser<wbr>Type<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_parser_enum_filetype_.filetype.html" class="tsd-signature-type">FileType</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/parser/ParserFactory.ts#L18">parser/ParserFactory.ts:18</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get specified parser</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/_parser_enum_filetype_.filetype.html" class="tsd-signature-type">FileType</a></h4>
+							<p>FileType</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -183,7 +205,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_iconfig_.html">"IConfig"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -192,7 +214,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_parser_abstractparser_.html">"parser/<wbr>Abstract<wbr>Parser"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_parser_parserfactory_.html">"parser/<wbr>Parser<wbr>Factory"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -214,34 +236,22 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_iconfig_.iconfig.html" class="tsd-kind-icon">IConfig</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_iconfig_.ifile.html" class="tsd-kind-icon">IFile</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_parser_parserfactory_.parserfactory.html" class="tsd-kind-icon">Parser<wbr>Factory</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#dest" class="tsd-kind-icon">dest</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="_parser_parserfactory_.parserfactory.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#disabledirectorycreation" class="tsd-kind-icon">disable<wbr>Directory<wbr>Creation</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="_parser_parserfactory_.parserfactory.html#_file" class="tsd-kind-icon">_file</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#mapname" class="tsd-kind-icon">map<wbr>Name</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_parser_parserfactory_.parserfactory.html#parser" class="tsd-kind-icon">parser</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#mtime" class="tsd-kind-icon">mtime</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#parser" class="tsd-kind-icon">parser</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#source" class="tsd-kind-icon">source</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#template" class="tsd-kind-icon">template</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_parser_parserfactory_.parserfactory.html#getparsertype" class="tsd-kind-icon">get<wbr>Parser<wbr>Type</a>
 							</li>
 						</ul>
 					</li>
