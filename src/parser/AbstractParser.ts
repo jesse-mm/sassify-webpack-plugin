@@ -12,7 +12,7 @@ abstract class AbstractParser {
 	// Reference to file object
 	protected file:IFile = null;
 	// Default template for mustache
-	private static DEFAULT_TEMPLATE:string = template.SCSS_MAP;
+	private static DEFAULT_TEMPLATE:string = template.SCSS_MAP_UNQUOTED;
 
 	/**
 	 * @param file
