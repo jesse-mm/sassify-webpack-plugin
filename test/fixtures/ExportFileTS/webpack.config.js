@@ -1,5 +1,5 @@
 const SassifyWebpackPlugin = require('../../../src/SassifyWebpackPlugin');
-import template from '../../../src/template';
+const template = require('../../../src/template');
 const path = require('path');
 
 module.exports = {
@@ -14,7 +14,12 @@ module.exports = {
 				},
 				{
 					source: path.resolve(__dirname, './multiExport.ts'),
-					dest: path.resolve(__dirname, './scss/multiExport.scss'),
+					dest: path.resolve(__dirname, './scss/multiExport-unquoted.scss'),
+				},
+				{
+					source: path.resolve(__dirname, './multiExport.ts'),
+					dest: path.resolve(__dirname, './scss/multiExport-quoted.scss'),
+					template: template.SCSS_MAP_QUOTED,
 				},
 				{
 					source: path.resolve(__dirname, './singleExport.ts'),
