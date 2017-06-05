@@ -34,11 +34,12 @@ abstract class AbstractParser {
 		const varMap:IVarMap = {};
 		const recurse = (currentObject:any, rootKey?:string) => {
 			Object.keys(currentObject).forEach((key:string) => {
-				if (typeof currentObject[key] === 'string' || currentObject[key] === 'number') {
+				if (typeof currentObject[key] === 'string' || typeof currentObject[key] === 'number') {
 					if(rootKey) {
 						if (!varMap[`${rootKey}`]) {
 							varMap[`${rootKey}`] = [];
 						}
+
 						varMap[rootKey].push({ keyName: key, keyValue: currentObject[key] })
 					}
 				} else if(typeof currentObject[key] === 'object' && currentObject[key] !== null) {
