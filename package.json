@@ -21,8 +21,9 @@
   "scripts": {
     "build": "node ./bin/build.js build",
     "clean": "node ./bin/build.js clean",
+    "compile-src": "node ./bin/build.js compile-src",
     "test": "tsc -p ./test/tsconfig.json && ava",
-    "doc": "typedoc --out doc/typedoc/ src/",
+    "doc": "typedoc --out docs/typedoc/ src/",
     "cover": "tsc --rootDir ./src --outDir ./src --sourcemap && nyc --reporter lcov --reporter text npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "report-coverage": "cat ./coverage/lcov.info | codecov"
@@ -49,7 +50,6 @@
     "chalk": "^1.1.3",
     "codecov.io": "^0.1.6",
     "nyc": "^10.3.2",
-    "path": "^0.12.7",
     "typedoc": "^0.7.1",
     "webpack": "^2.5.1"
   },
@@ -82,6 +82,7 @@
     "babel-preset-es2015": "^6.24.1",
     "mkdirp": "^0.5.1",
     "mustache": "^2.3.0",
+    "path": "^0.12.7",
     "pify": "^2.3.0",
     "shelljs": "^0.7.7",
     "typescript": "^2.3.3",
