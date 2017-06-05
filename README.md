@@ -120,26 +120,26 @@ export const pallete = {
 Output: sharedObject.scss (Rendered using SCSS map template)
 ```scss
 $mediaQueries: (
-	SMALL: '(min-width: 480px)',
-	MEDIUM: '(min-width: 720px)',
-	LARGE: '(min-width: 1024px)',
+	SMALL: (min-width: 480px),
+	MEDIUM: (min-width: 720px),
+	LARGE: (min-width: 1024px),
 );
 
 $ohBabe: (
-	starlightBlue: '#08BECD',
-	lorna: '#67C5CD',
-	dollarOnATrack: '#17ABB7',
-	oceanStorm: '#063E54',
-	weakest: '358391',
+	starlightBlue: #08BECD,
+	lorna: #67C5CD,
+	dollarOnATrack: #17ABB7,
+	oceanStorm: #063E54,
+	weakest: 358391,
 );
 
 $meeting: (
-	radio: '#4C6974',
-	oceanBlue: '#93CCDF',
-	whispy: '#E7E9E9',
-	orangeYou: '#E98B53',
+	radio: #4C6974,
+	oceanBlue: #93CCDF,
+	whispy: #E7E9E9,
+	orangeYou: #E98B53,
 );
 ```
 
 ## Docs
-[Typedoc](https://jesse-mm.github.io/sassify-webpack-plugin/)
+[Typedoc](http://rawgit.com/jesse-mm/sassify-webpack-plugin/master/docs/)
