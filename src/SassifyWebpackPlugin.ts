@@ -130,7 +130,7 @@ class SassifyWebpackPlugin {
 				} else if (typeof (<any> file.parser).default === 'function') {
 					parsers[i] = new (<any> file.parser).default(file);
 				} else {
-					throw new Error('[Sassify] Couldn\'t new the parser.');
+					throw new Error('[Sassify] Couldn\'t create the parser.');
 				}
 			} else {
 				parsers[i] = new ParserFactory(file).parser;
