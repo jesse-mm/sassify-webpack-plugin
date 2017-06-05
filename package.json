@@ -23,7 +23,7 @@
     "clean": "node ./bin/build.js clean",
     "compile-src": "node ./bin/build.js compile-src",
     "test": "tsc -p ./test/tsconfig.json && ava",
-    "doc": "typedoc --out docs/typedoc/ src/",
+    "doc": "typedoc --out docs/ src/",
     "cover": "tsc --rootDir ./src --outDir ./src --sourcemap && nyc --reporter lcov --reporter text npm run test",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "report-coverage": "cat ./coverage/lcov.info | codecov"

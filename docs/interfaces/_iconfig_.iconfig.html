@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IFile | sassify-webpack-plugin</title>
+	<title>IConfig | sassify-webpack-plugin</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,28 +59,21 @@
 					<a href="../modules/_iconfig_.html">&quot;IConfig&quot;</a>
 				</li>
 				<li>
-					<a href="_iconfig_.ifile.html">IFile</a>
+					<a href="_iconfig_.iconfig.html">IConfig</a>
 				</li>
 			</ul>
-			<h1>Interface IFile</h1>
+			<h1>Interface IConfig</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface for files property</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IFile</span>
+						<span class="target">IConfig</span>
 					</li>
 				</ul>
 			</section>
@@ -91,13 +84,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#dest" class="tsd-kind-icon">dest</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#disabledirectorycreation" class="tsd-kind-icon">disable<wbr>Directory<wbr>Creation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#mapname" class="tsd-kind-icon">map<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#mtime" class="tsd-kind-icon">mtime</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#parser" class="tsd-kind-icon">parser</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#source" class="tsd-kind-icon">source</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.ifile.html#template" class="tsd-kind-icon">template</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.iconfig.html#debug" class="tsd-kind-icon">debug</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_iconfig_.iconfig.html#files" class="tsd-kind-icon">files</a></li>
 							</ul>
 						</section>
 					</div>
@@ -106,72 +94,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dest" class="tsd-anchor"></a>
-					<h3>dest</h3>
-					<div class="tsd-signature tsd-kind-icon">dest<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="debug" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> debug</h3>
+					<div class="tsd-signature tsd-kind-icon">debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L13">IConfig.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/8d97c7a/src/IConfig.ts#L5">IConfig.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="disabledirectorycreation" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> disable<wbr>Directory<wbr>Creation</h3>
-					<div class="tsd-signature tsd-kind-icon">disable<wbr>Directory<wbr>Creation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<a name="files" class="tsd-anchor"></a>
+					<h3>files</h3>
+					<div class="tsd-signature tsd-kind-icon">files<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_iconfig_.ifile.html" class="tsd-signature-type">IFile</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L17">IConfig.ts:17</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mapname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> map<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">map<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L16">IConfig.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="mtime" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> mtime</h3>
-					<div class="tsd-signature tsd-kind-icon">mtime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L15">IConfig.ts:15</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="parser" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parser</h3>
-					<div class="tsd-signature tsd-kind-icon">parser<span class="tsd-signature-symbol">:</span> <a href="_parser_parsers_iparser_.iparser.html" class="tsd-signature-type">IParser</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L19">IConfig.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="source" class="tsd-anchor"></a>
-					<h3>source</h3>
-					<div class="tsd-signature tsd-kind-icon">source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L12">IConfig.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="template" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> template</h3>
-					<div class="tsd-signature tsd-kind-icon">template<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/5d9c39e/src/IConfig.ts#L18">IConfig.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/jesse-mm/sassify-webpack-plugin/blob/8d97c7a/src/IConfig.ts#L4">IConfig.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,39 +152,24 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_iconfig_.iconfig.html" class="tsd-kind-icon">IConfig</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_iconfig_.ifile.html" class="tsd-kind-icon">IFile</a>
+						<a href="_iconfig_.iconfig.html" class="tsd-kind-icon">IConfig</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#dest" class="tsd-kind-icon">dest</a>
+								<a href="_iconfig_.iconfig.html#debug" class="tsd-kind-icon">debug</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#disabledirectorycreation" class="tsd-kind-icon">disable<wbr>Directory<wbr>Creation</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#mapname" class="tsd-kind-icon">map<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#mtime" class="tsd-kind-icon">mtime</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#parser" class="tsd-kind-icon">parser</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#source" class="tsd-kind-icon">source</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_iconfig_.ifile.html#template" class="tsd-kind-icon">template</a>
+								<a href="_iconfig_.iconfig.html#files" class="tsd-kind-icon">files</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_iconfig_.ifile.html" class="tsd-kind-icon">IFile</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
