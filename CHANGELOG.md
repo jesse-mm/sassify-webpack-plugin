@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.0.17] - 2017-06-06
+### Fixed
+- Wrong fileName returned when running sassify-webpack-plugin on a window machine
+
 ## [1.0.16] - 2017-06-05
 ### Added
 - This change log
