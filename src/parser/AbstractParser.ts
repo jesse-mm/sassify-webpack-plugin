@@ -122,7 +122,7 @@ abstract class AbstractParser {
 	 * @returns {undefined|string}
 	 */
 	private getFileName(filePath:string):string {
-		return filePath.split(/\//).pop();
+		return path.basename(filePath);
 	}
 
 	/**
