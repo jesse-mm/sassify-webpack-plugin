@@ -55,7 +55,7 @@ When generating a single export ```export default { ... }``` it's possible to as
 By default Sassify will use the filename (e.g. colors.js -> $colors: ()).
 
 **template**
-Sassify is using mustache for rendering templates. By default it uses 'scss-vars.mustache' found in
+Sassify is using mustache for rendering templates. By default it uses 'scss-map-unquoted.mustache' found in
 ```node_modules/sassify-webpack-plugin/dist/parser/template```.
 
 Using another template can be done by:
