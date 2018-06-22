@@ -29,7 +29,7 @@ export default class TsParser extends AbstractParser implements IParser {
 	 * @returns {Promise<void>}
 	 */
 	private async parse() {
-		const outFileName = this.file.source.split(/\//).pop().replace('ts', 'js');
+		const outFileName = this.file.source.split(/[/\\]/).pop().replace('ts', 'js');
 
 		shell.exec(
 			path.resolve(
